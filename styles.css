@@ -1,0 +1,354 @@
+:root {
+  --main-color: #fcb645;
+  --button-color: hsl(217, 97%, 63%);
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+  font-family: Roboto, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  font: inherit;
+}
+
+body {
+  background: linear-gradient(
+    rgba(250, 172, 56, 0.962),
+    rgba(252, 90, 69, 0.928)
+  );
+  height: 100vh;
+  margin: 0;
+  line-height: 1;
+  font-family: "Roboto Mono", monospace;
+  display: grid;
+  place-items: center;
+}
+
+/*Background and images*/
+.container {
+  position: relative;
+}
+
+.grey_container {
+  display: none;
+  visibility: hidden;
+}
+
+.container .dog_image {
+  position: absolute;
+  top: 70%;
+  width: 40%;
+  left: 60%;
+  transform: rotateY(180deg);
+  overflow: hidden;
+}
+
+/*Main component*/
+
+#main_component {
+  display: flex;
+  flex-direction: column;
+  /* From https://css.glass */
+  background: rgba(92, 91, 91, 0.618);
+  border-radius: 16px;
+  backdrop-filter: blur(9.3px);
+  -webkit-backdrop-filter: blur(9.3px);
+  height: 75svh;
+  padding: 0.625rem;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.4);
+}
+
+h1 {
+  font-size: 1.5rem;
+  padding: 20px 0 30px;
+  color: hsl(192, 38%, 95%);
+  text-shadow: 2px 1px black;
+}
+
+input {
+  cursor: pointer;
+  margin-bottom: 1.5625rem;
+}
+
+/* Breed, Weight Age section */
+
+.manual_input {
+  display: flex;
+  flex-direction: column;
+  padding: 0.3125rem;
+  max-width: max-content;
+  border: none;
+  border-radius: 0.5rem;
+}
+
+.manual_input input {
+  padding: 0.3125rem;
+  max-width: max-content;
+  border: none;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.manual_input:focus {
+  border: solid 2px black;
+}
+
+/* Autosuggest box */
+
+.list {
+  width: 100%;
+  background-color: white;
+  list-style: none;
+  padding: 1px;
+  position: absolute;
+  top: 9.9rem;
+  max-width: 12.7rem;
+  border: none;
+  z-index: 200;
+}
+
+.list-items {
+  padding: 10px 2px;
+  border: 0.5px solid #d4d4d4;
+}
+
+/*Radio section*/
+
+.questionmark_container {
+  position: relative;
+  display: inline-block;
+}
+.questionmark {
+  width: 1rem;
+  cursor: help;
+}
+
+/*Activity explanation popup */
+
+.activity_explanation {
+  display: none;
+  position: absolute;
+  width: 300px;
+  background-color: var(--main-color);
+  border: 1px solid #c58b1f;
+  border-radius: 0.5rem;
+  padding: 10px;
+  top: -23rem;
+  right: -7rem;
+  box-shadow: #171616 20px 20px 30px;
+  z-index: 500;
+}
+
+.activity_explanation::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 10.625rem;
+  border-width: 10px;
+  border-style: solid;
+  border-color: var(--main-color) transparent transparent transparent;
+}
+
+.activity_explanation p {
+  padding: 0.7rem;
+  line-height: 1.5rem;
+  font-size: small;
+  color: #171616;
+}
+
+.radio {
+  display: flex;
+  flex-direction: column;
+  border: none;
+}
+
+.manual_input label,
+.dog_activity {
+  padding: 10px 0 10px 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* submit button */
+
+#submit {
+  margin-top: 3rem;
+  width: 7.5rem;
+  height: 2.5rem;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.clicked {
+  background-color: var(--button-color);
+  box-shadow: 0px 15px 20px #73a7fa;
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+/*modal */
+
+.modal {
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  min-height: 80svh;
+  min-width: 38ch;
+  padding: 1em;
+  border: 0;
+  box-shadow: 2rem 3rem 4rem rgba(0, 0, 0, 0.7);
+  background-color: #2f323aaf;
+  backdrop-filter: blur(9.3px);
+  -webkit-backdrop-filter: blur(9.3px);
+  border-radius: 1rem;
+}
+
+h2 {
+  font-size: large;
+  margin-bottom: 10px;
+  color: #e8e8e8;
+}
+
+.pet_details {
+  border-bottom: solid 2px rgba(252, 90, 69, 0.928);
+  margin-bottom: 1rem;
+}
+
+.modal p {
+  color: #e8e8e8;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: large;
+  color: #e2cca6;
+  margin-bottom: 0.5rem;
+}
+
+.daily_Cals_Paragraph {
+  padding-bottom: 1rem;
+  border-bottom: solid 2px rgba(252, 90, 69, 0.928);
+}
+
+.modal::backdrop {
+  background-image: url(/images/dog_paw_print_black2-1556133593\ copy.svg),
+    linear-gradient(rgba(250, 172, 56, 0.962), rgba(252, 90, 69, 0.928));
+  background-repeat: repeat;
+  background-size: 70px;
+}
+
+.modalCloseButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  padding: 4px;
+  width: 28px;
+  height: 28px;
+  background-color: #e8e8e8;
+  border: none;
+  border-radius: 50%;
+}
+
+.modalCloseButton:hover {
+  background-color: #ccc;
+}
+
+#minCal,
+#dailyCal {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/*For desktop*/
+
+@media (min-width: 768px) {
+  .container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+
+  .grey_container {
+    display: block;
+    visibility: visible;
+  }
+  #main_component {
+    position: absolute;
+    display: flex;
+    height: 65vh;
+    top: 10%;
+    margin-right: 30rem;
+    /* From https://css.glass */
+    background: rgba(198, 195, 195, 0.52);
+    border-radius: 1rem;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(9.3px);
+    -webkit-backdrop-filter: blur(9.3px);
+  }
+
+  .container .dog_image {
+    position: absolute;
+    top: 7%;
+    width: 45%;
+    left: 50%;
+    transform: rotateY(180deg);
+  }
+
+  .list-items:hover {
+    background-color: #f4cd91;
+  }
+
+  .questionmark_container:hover .activity_explanation {
+    display: block;
+    z-index: 500;
+  }
+
+  #submit:hover {
+    background-color: var(--button-color);
+    box-shadow: 0px 15px 20px #73a7fa;
+    color: #fff;
+    transform: translateY(-7px);
+  }
+
+  .modal h1 {
+    text-align: center;
+    font-size: xx-large;
+    margin-bottom: 2rem;
+    text-shadow: #000 2px 2px;
+  }
+
+  .modal {
+    max-width: 70ch;
+    padding: 0 3rem 0 3rem;
+  }
+
+  .modal p {
+    line-height: 1.7rem;
+  }
+
+  .modal::backdrop {
+    background-image: url(/images/dog_paw_print_black2-1556133593\ copy.svg),
+      linear-gradient(rgba(250, 172, 56, 0.962), rgba(252, 90, 69, 0.928));
+    background-repeat: repeat;
+    background-size: 90px;
+  }
+}
+
